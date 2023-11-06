@@ -78,7 +78,7 @@ powershell上で実行
     netsh
   ```
 
-- ポートフォワーディングを行う
+- ポートフォワーディングを行う(netshコマンド実行後に打つ)
 interface portproxy add v4tov4 listenport={ローカルPCのリッスンポート} listenaddress={ローカルPCのIPアドレス} connectport={Dockerのポート} connectaddress={DockerのIPアドレス}  
   ※DockerのIPアドレスは0.0.0.0を指定。
   ```
