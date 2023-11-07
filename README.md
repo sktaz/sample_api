@@ -112,6 +112,5 @@ IPv4アドレスの値を確認する。
   netsh interface portproxy reset
   ```
 
-
--　詳細は以下記事に記載しました  
+- 詳細は以下記事に記載しました  
   https://zenn.dev/ringo_to/articles/fe6467653fb0d7
