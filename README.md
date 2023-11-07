@@ -79,7 +79,11 @@ IPv4アドレスの値を確認する。
   <img src="https://storage.googleapis.com/zenn-user-upload/bb480083eb9f-20231107.png" width="40%">
 
 
-### powershellを管理者として実行
+### powershellで実行
+- powershellを管理者として実行する
+
+<img src="https://storage.googleapis.com/zenn-user-upload/5c40e0f73b36-20231107.png" width="30%">
+
 
 - 設定前に現在のポートフォワード設定を確認する
   ```
