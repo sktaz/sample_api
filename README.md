@@ -57,7 +57,7 @@ rails s -b 0.0.0.0 -p 3001
 ```
 
 
-## Dockerで立ち上げたAPIにスマホからアクセスするための準備
+## Dockerで立ち上げたAPIにスマホからアクセスする方法
 
 ### 1.Windows Defenderのファイアウォールの許可設定
 - コントロール パネル\システムとセキュリティ\Windows Defender ファイアウォール
@@ -111,3 +111,7 @@ IPv4アドレスの値を確認する。
   ```
   netsh interface portproxy reset
   ```
+
+
+-　詳細は以下記事に記載しました  
+  https://zenn.dev/ringo_to/articles/fe6467653fb0d7
