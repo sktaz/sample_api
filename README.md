@@ -72,27 +72,42 @@ rails s -b 0.0.0.0 -p 3001
 
 
 ### 2.ポートフォワーディング設定
-powershell上で実行
-- netshコマンドを実行
-  ```
-    netsh
-  ```
+### ローカルPCのIPアドレスを確認する
+windowsの設定画面の「ネットワークとインターネット」から接続しているネットワークをクリック。
+IPv4アドレスの値を確認する。
 
-- ポートフォワーディングを行う(netshコマンド実行後に打つ)
-interface portproxy add v4tov4 listenport={ローカルPCのリッスンポート} listenaddress={ローカルPCのIPアドレス} connectport={Dockerのポート} connectaddress={DockerのIPアドレス}  
-  ※DockerのIPアドレスは0.0.0.0を指定。
-  ```
-  interface portproxy add v4tov4 listenport=3001 listenaddress=123.123.1.123 connectport=3001 connectaddress=0.0.0.0
-  ```
+  <img src="https://storage.googleapis.com/zenn-user-upload/bb480083eb9f-20231107.png" width="40%">
 
 
+### powershellを管理者として実行
 
-- 設定内容を確認
+- 設定前に現在のポートフォワード設定を確認する
   ```
-  interface portproxy show v4tov4
+  netsh interface portproxy show all
   ```
 
-- 設定を消す場合
+
+- netshコマンドでポートフォワードを設定を行なう。
   ```
-  interface portproxy reset
+  netsh interface portproxy add v4tov4 listenport={ローカルPCのリッスンポート} listenaddress={windowsの設定から確認したIPアドレス} connectport={Docker上で起動しているアクセスしたいアプリケーションのポート} connectaddress={DockerのIPアドレス}  
+  ```
+
+  たとえば、Dockerコンテナ上で、`rails s -b 0.0.0.0 -p 3001`で立ち上げる場合は、DockerのIPアドレスは0.0.0.0を指定する。
+
+  ```
+  # 例
+  netsh interface portproxy add v4tov4 listenport=3001 listenaddress=172.28.72.28 connectport=3001 connectaddress=0.0.0.0
+  ```
+
+- ポートフォワード設定を確認し、設定がされていることを確認する
+  ```
+  netsh interface portproxy show all
+  ```
+
+  <img src="https://storage.googleapis.com/zenn-user-upload/a885b8100959-20231107.png" width="40%">
+
+
+- 参考：設定を消す場合
+  ```
+  netsh interface portproxy reset
   ```
