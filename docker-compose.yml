@@ -20,6 +20,22 @@ services:
     ports:
       - "3001:3001"
 
+  https-portal:
+    image: steveltn/https-portal:1
+    ports:
+      - '80:80'
+      - '443:443'
+    links:
+      - web
+    restart: always
+    environment:
+      DOMAINS: 'sksk.example.com -> http://web:3001'
+      # STAGE: 'production' # Don't use production until staging works
+      # FORCE_RENEW: 'true'
+    volumes: 
+      - ./https-portal-data:/var/lib/https-portal
+
+
 volumes:
   postgres:
     driver: local
