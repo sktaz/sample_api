@@ -60,3 +60,6 @@ doc/
 
 # Ignore precompiled assets for production environment
 /public/assets
+
+
+/https-portal-data

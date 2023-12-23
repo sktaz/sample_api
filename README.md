@@ -42,7 +42,6 @@ rails s -b 0.0.0.0 -p 3001
 docker-compose build
 docker-compose up -d
 docker-compose exec web bash
-
 ```
 
 - 2.ライブラリのインストール(bashで実行)
@@ -53,7 +52,6 @@ bundle install
 - 3.APIサーバーの起動(bash上で実行)
 ```
 rails s -b 0.0.0.0 -p 3001
-
 ```
 
 
